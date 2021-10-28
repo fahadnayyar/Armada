@@ -9,7 +9,7 @@ level pseudo_impl {
   noaddr var impl: uint64 := 1;
 
 
-  method acquire(myLock: uint64) {
+  method acquire() {
     noaddr var old: uint64 := 0;
     while (old == 0) {
       old := compare_and_swap(impl, 1, 0);
@@ -17,7 +17,7 @@ level pseudo_impl {
   }
 
 
-  method release(myLock: uint64) {
+  method release() {
     noaddr var old: uint64 := 0; 
     old := compare_and_swap(tail, 0, 1);
     // todo: put assertion/specification that old==0
@@ -57,28 +57,39 @@ level spec {
   noaddr var impl: uint64 := 1;
 
 
-  method acquire(myLock: uint64) {
+  method acquire() {
+    ensures $sb_empty
     noaddr var old: uint64 := 0;
     while (old == 0) {
-      old := compare_and_swap(impl, 1, 0);
+      atomic {
+        old := compare_and_swap(impl, 1, 0);
+      }
     }
   }
 
 
-  method release(myLock: uint64) {
+  method release() {
+    ensures $sb_empty
     noaddr var old: uint64 := 0; 
-    old := compare_and_swap(tail, 0, 1);
+    atomic {
+      old := compare_and_swap(tail, 0, 1);
+    }
     // todo: put assertion/specification that old==0
   }
 
 
-  method client() {
-    while true {
+  method client() 
+  {
+    while true 
+    {
       acquire();
-      label first:
-        log ::= log + [Left($me)];
-      label second:
-        log ::= log + [Right($me)];
+      placeholder := 0;
+      atomic {
+        label first:
+          log ::= log + [Left($me)];
+        label second:
+          log ::= log + [Right($me)];
+      }
       label third:
       release();
     }
