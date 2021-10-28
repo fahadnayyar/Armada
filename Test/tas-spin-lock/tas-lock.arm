@@ -1,0 +1,102 @@
+include "../../Armada/ArmadaCommonDefinitions.dfy"
+
+level pseudo_impl {
+
+
+  ghost var log:seq<MyLogEntry> := [];
+
+
+  noaddr var impl: uint64 := 1;
+
+
+  method acquire(myLock: uint64) {
+    noaddr var old: uint64 := 0;
+    while (old == 0) {
+      old := compare_and_swap(impl, 1, 0);
+    }
+  }
+
+
+  method release(myLock: uint64) {
+    noaddr var old: uint64 := 0; 
+    old := compare_and_swap(tail, 0, 1);
+    // todo: put assertion/specification that old==0
+  }
+
+
+  method client() {
+    while true {
+      acquire();
+      label first:
+        log ::= log + [Left($me)];
+      label second:
+        log ::= log + [Right($me)];
+      label third:
+      release();
+    }
+  }
+
+  
+  method main() {
+    while true
+    {
+      create_thread client();
+    }
+  }
+
+
+}
+
+
+level spec {
+
+
+  ghost var log:seq<MyLogEntry> := [];
+
+
+  noaddr var impl: uint64 := 1;
+
+
+  method acquire(myLock: uint64) {
+    noaddr var old: uint64 := 0;
+    while (old == 0) {
+      old := compare_and_swap(impl, 1, 0);
+    }
+  }
+
+
+  method release(myLock: uint64) {
+    noaddr var old: uint64 := 0; 
+    old := compare_and_swap(tail, 0, 1);
+    // todo: put assertion/specification that old==0
+  }
+
+
+  method client() {
+    while true {
+      acquire();
+      label first:
+        log ::= log + [Left($me)];
+      label second:
+        log ::= log + [Right($me)];
+      label third:
+      release();
+    }
+  }
+
+  
+  method main() {
+    while true
+    {
+      create_thread client();
+    }
+  }
+
+
+}
+
+
+
+proof impl_spec {
+       
+}
