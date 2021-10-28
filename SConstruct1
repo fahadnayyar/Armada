@@ -81,128 +81,133 @@ def run_directory(dir_name, entries):
         Clean(cmd, subdir)
 
 
-run_directory("assume-intro", [
-    ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
-    ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
-    ("test3", ["SharedStructs3", "E", "F", "EF"], ["EF"]),
+# run_directory("assume-intro", [
+#     ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
+#     ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
+#     ("test3", ["SharedStructs3", "E", "F", "EF"], ["EF"]),
+# ])
+
+# run_directory("barrier", [
+#     ("barrier", ["SharedStructs", "Impl", "L1", "L2", "ImplRefinesL1", "L1RefinesL2"], ["ImplRefinesL1", "L1RefinesL2"]),
+# ])
+
+# run_directory("tsoelim", [
+#     ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
+#     ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
+#     ("test3", ["SharedStructs3", "E", "F", "EF"], ["EF"]),
+#     ("test4", ["SharedStructs4", "G", "H", "GH"], ["GH"]),
+# ])
+
+# run_directory("reduction", [
+#     ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
+#     ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
+# ])
+
+run_directory("tas-spin-lock", [
+    ("tas-lock", ["SharedStructs", "impl", "spec", "impl_spec"], ["impl_spec"]),
 ])
 
-run_directory("barrier", [
-    ("barrier", ["SharedStructs", "Impl", "L1", "L2", "ImplRefinesL1", "L1RefinesL2"], ["ImplRefinesL1", "L1RefinesL2"]),
-])
 
-run_directory("tsoelim", [
-    ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
-    ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
-    ("test3", ["SharedStructs3", "E", "F", "EF"], ["EF"]),
-    ("test4", ["SharedStructs4", "G", "H", "GH"], ["GH"]),
-])
+# run_directory("combining", [
+#     ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
+# ])
 
-run_directory("reduction", [
-    ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
-    ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
-])
+# run_directory("starweakening", [
+#     ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
+#     ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
+#     ("test3", ["SharedStructs3", "E", "F", "EF"], ["EF"]),
+#     ("test4", ["SharedStructs4", "G", "H", "GH"], ["GH"]),
+# ])
 
-run_directory("combining", [
-    ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
-])
+# run_directory("varhiding", [
+#     ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
+#     ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
+#     ("test3", ["SharedStructs3", "E", "F", "EF"], ["EF"]),
+#     ("test4", ["SharedStructs4", "G", "H", "GH"], ["GH"]),
+#     ("test5", ["SharedStructs5", "I", "J", "IJ"], ["IJ"]),
+# ])
 
-run_directory("starweakening", [
-    ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
-    ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
-    ("test3", ["SharedStructs3", "E", "F", "EF"], ["EF"]),
-    ("test4", ["SharedStructs4", "G", "H", "GH"], ["GH"]),
-])
+# run_directory("varintro", [
+#     ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
+#     ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
+#     ("test3", ["SharedStructs3", "E", "F", "EF"], ["EF"]),
+#     ("test4", ["SharedStructs4", "G", "H", "GH"], ["GH"]),
+# ])
 
-run_directory("varhiding", [
-    ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
-    ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
-    ("test3", ["SharedStructs3", "E", "F", "EF"], ["EF"]),
-    ("test4", ["SharedStructs4", "G", "H", "GH"], ["GH"]),
-    ("test5", ["SharedStructs5", "I", "J", "IJ"], ["IJ"]),
-])
+# run_directory("weakening", [
+#     ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
+#     ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
+#     ("test3", ["SharedStructs3", "E", "F", "EF"], ["EF"]),
+# ])
 
-run_directory("varintro", [
-    ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
-    ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
-    ("test3", ["SharedStructs3", "E", "F", "EF"], ["EF"]),
-    ("test4", ["SharedStructs4", "G", "H", "GH"], ["GH"]),
-])
+# run_directory("counter", [
+#     ("SharedStructs", ["SharedStructs"], []),
+#     ("A", ["A"], []),
+#     ("B", ["B"], []),
+#     ("C", ["C"], []),
+#     ("D", ["D"], []),
+#     ("E", ["E"], []),
+#     ("F", ["F"], []),
+#     ("G", ["G"], []),
+#     ("I", ["I"], []),
+#     ("J", ["J"], []),
+#     ("AB", ["AB"], ["AB"]),
+#     ("BC", ["BC"], ["BC"]),
+#     ("CD", ["CD"], ["CD"]),
+#     ("DE", ["DE"], ["DE"]),
+#     ("EF", ["EF"], ["EF"]),
+#     ("FG", ["FG"], ["FG"]),
+#     ("GI", ["GI"], ["GI"]),
+#     ("IJ", ["IJ"], ["IJ"]),
+# ])
 
-run_directory("weakening", [
-    ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
-    ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
-    ("test3", ["SharedStructs3", "E", "F", "EF"], ["EF"]),
-])
+# run_directory("bitvector", [
+#     ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
+# ])
 
-run_directory("counter", [
-    ("SharedStructs", ["SharedStructs"], []),
-    ("A", ["A"], []),
-    ("B", ["B"], []),
-    ("C", ["C"], []),
-    ("D", ["D"], []),
-    ("E", ["E"], []),
-    ("F", ["F"], []),
-    ("G", ["G"], []),
-    ("I", ["I"], []),
-    ("J", ["J"], []),
-    ("AB", ["AB"], ["AB"]),
-    ("BC", ["BC"], ["BC"]),
-    ("CD", ["CD"], ["CD"]),
-    ("DE", ["DE"], ["DE"]),
-    ("EF", ["EF"], ["EF"]),
-    ("FG", ["FG"], ["FG"]),
-    ("GI", ["GI"], ["GI"]),
-    ("IJ", ["IJ"], ["IJ"]),
-])
+# run_directory("regions", [
+#     ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
+#     ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
+#     ("test3", ["SharedStructs3", "E", "F", "EF"], ["EF"]),
+#     ("test4", ["SharedStructs4", "G", "H", "GH"], ["GH"]),
+#     ("pointers", ["SharedStructsPointers", "level0", "level1", "level01proof"], ["level01proof"]),
+# ])
 
-run_directory("bitvector", [
-    ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
-])
+# run_directory("armada-parser", [
+#     ("test", ["SharedStructs", "A"], []),
+#     ("test2", ["SharedStructs2", "B"], []),
+#     ("test3", ["SharedStructs3", "C"], []),
+#     ("test4", ["SharedStructs4", "D"], []),
+#     ("test5", ["SharedStructs5", "E"], []),
+#     ("test6", ["SharedStructs6", "F"], []),
+#     ("test7", ["SharedStructs7", "G"], [])
+# ])
 
-run_directory("regions", [
-    ("test", ["SharedStructs", "A", "B", "AB"], ["AB"]),
-    ("test2", ["SharedStructs2", "C", "D", "CD"], ["CD"]),
-    ("test3", ["SharedStructs3", "E", "F", "EF"], ["EF"]),
-    ("test4", ["SharedStructs4", "G", "H", "GH"], ["GH"]),
-    ("pointers", ["SharedStructsPointers", "level0", "level1", "level01proof"], ["level01proof"]),
-])
+# run_directory("mcslock", [
+#     ("lock-array", ["MCSLock", "pseudo_impl", "L1", "L2", "L3", "L4", "L5", "L6", "pseudo_impl_L1", "L1_L2", "L2_L3", "L3_L4", "L4_L5", "L5_L6"],
+#      ["pseudo_impl_L1", "L1_L2", "L2_L3", "L3_L4", "L4_L5", "L5_L6"])
+# ])
 
-run_directory("armada-parser", [
-    ("test", ["SharedStructs", "A"], []),
-    ("test2", ["SharedStructs2", "B"], []),
-    ("test3", ["SharedStructs3", "C"], []),
-    ("test4", ["SharedStructs4", "D"], []),
-    ("test5", ["SharedStructs5", "E"], []),
-    ("test6", ["SharedStructs6", "F"], []),
-    ("test7", ["SharedStructs7", "G"], [])
-])
-
-run_directory("mcslock", [
-    ("lock-array", ["MCSLock", "pseudo_impl", "L1", "L2", "L3", "L4", "L5", "L6", "pseudo_impl_L1", "L1_L2", "L2_L3", "L3_L4", "L4_L5", "L5_L6"],
-     ["pseudo_impl_L1", "L1_L2", "L2_L3", "L3_L4", "L4_L5", "L5_L6"])
-])
-
-run_directory("qbss", [
-    ("queue", [
-        "QueueBSSNoTSO",
-        "QueueBSSNoTSO_AbstractQueueIntroduced",
-        "QueueBSSNoTSO_AbstractQueueIntroduced_CombinedEnqueue",
-        "QueueBSSNoTSO_WithAbstractQueue",
-        "QueueBSSNoTSO_AbstractLogs",
-        "QueueBSSNoTSO_AbstractLogsStarweakened",
-        "QueueBSSNoTSO_HiddenEnqLocals",
-        "QueueBSSNoTSO_HiddenEnqDeqLocals",
-        "QueueBSSNoTSO_HiddenImpl",
-    ],
-    [
-        "NoTSOIntroduceAbstractQueue",
-        "CombineEnqueueAtomicAbstractQueue",
-        "CombineDequeueAtomicAbstractQueue",
-        "NoTSOUseAbstractQueueForLog",
-        "NoTSOStarWeaken",
-        "HideEnqueueLocals",
-        "HideDequeueLocals",
-        "HideGlobal",
-    ])
-])
+# run_directory("qbss", [
+#     ("queue", [
+#         "QueueBSSNoTSO",
+#         "QueueBSSNoTSO_AbstractQueueIntroduced",
+#         "QueueBSSNoTSO_AbstractQueueIntroduced_CombinedEnqueue",
+#         "QueueBSSNoTSO_WithAbstractQueue",
+#         "QueueBSSNoTSO_AbstractLogs",
+#         "QueueBSSNoTSO_AbstractLogsStarweakened",
+#         "QueueBSSNoTSO_HiddenEnqLocals",
+#         "QueueBSSNoTSO_HiddenEnqDeqLocals",
+#         "QueueBSSNoTSO_HiddenImpl",
+#     ],
+#     [
+#         "NoTSOIntroduceAbstractQueue",
+#         "CombineEnqueueAtomicAbstractQueue",
+#         "CombineDequeueAtomicAbstractQueue",
+#         "NoTSOUseAbstractQueueForLog",
+#         "NoTSOStarWeaken",
+#         "HideEnqueueLocals",
+#         "HideDequeueLocals",
+#         "HideGlobal",
+#     ])
+# ])

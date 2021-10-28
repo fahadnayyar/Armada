@@ -295,26 +295,27 @@ def run_directory(dir_name, dafny_files):
     target = "Test/%s/%s.vdfy" % (dir_name, dafny_file)
     env.DafnyVerify(target, [source, dafny_exe])
 
-run_directory("assume-intro", ["AB", "CD", "EF"])
-run_directory("barrier", ["ImplRefinesL1", "L1RefinesL2"])
-run_directory("tsoelim", ["AB", "CD", "EF", "GH"])
-run_directory("reduction", ["AB", "CD"])
-run_directory("combining", ["AB"])
-run_directory("varhiding", ["AB", "CD", "EF", "GH", "IJ"])
-run_directory("varintro", ["AB", "CD", "EF", "GH"])
-run_directory("weakening", ["AB", "CD", "EF"])
-run_directory("counter", ["AB", "BC", "CD", "DE", "EF", "FG", "GI", "IJ"])
-run_directory("bitvector", ["AB"])
-run_directory("regions", ["AB", "CD", "EF", "GH", "level01proof"])
-run_directory("starweakening", ["AB", "CD", "EF", "GH"])
-run_directory("armada-parser", ["A", "B", "C", "D", "E", "F"])
-run_directory("mcslock", ["pseudo_impl_L1", "L1_L2", "L2_L3", "L3_L4", "L4_L5", "L5_L6"])
-run_directory("qbss", ["NoTSOIntroduceAbstractQueue",
-                       "CombineEnqueueAtomicAbstractQueue",
-                       "CombineDequeueAtomicAbstractQueue",
-                       "NoTSOUseAbstractQueueForLog",
-                       "NoTSOStarWeaken",
-                       "HideEnqueueLocals",
-                       "HideDequeueLocals",
-                       "HideGlobal",
-                      ])
+# run_directory("assume-intro", ["AB", "CD", "EF"])
+# run_directory("barrier", ["ImplRefinesL1", "L1RefinesL2"])
+# run_directory("tsoelim", ["AB", "CD", "EF", "GH"])
+# run_directory("reduction", ["AB", "CD"])
+run_directory("tas-spin-lock", ["impl_spec"])
+# run_directory("combining", ["AB"])
+# run_directory("varhiding", ["AB", "CD", "EF", "GH", "IJ"])
+# run_directory("varintro", ["AB", "CD", "EF", "GH"])
+# run_directory("weakening", ["AB", "CD", "EF"])
+# run_directory("counter", ["AB", "BC", "CD", "DE", "EF", "FG", "GI", "IJ"])
+# run_directory("bitvector", ["AB"])
+# run_directory("regions", ["AB", "CD", "EF", "GH", "level01proof"])
+# run_directory("starweakening", ["AB", "CD", "EF", "GH"])
+# run_directory("armada-parser", ["A", "B", "C", "D", "E", "F"])
+# run_directory("mcslock", ["pseudo_impl_L1", "L1_L2", "L2_L3", "L3_L4", "L4_L5", "L5_L6"])
+# run_directory("qbss", ["NoTSOIntroduceAbstractQueue",
+#                        "CombineEnqueueAtomicAbstractQueue",
+#                        "CombineDequeueAtomicAbstractQueue",
+#                        "NoTSOUseAbstractQueueForLog",
+#                        "NoTSOStarWeaken",
+#                        "HideEnqueueLocals",
+#                        "HideDequeueLocals",
+#                        "HideGlobal",
+#                       ])
